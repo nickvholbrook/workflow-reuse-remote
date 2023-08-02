@@ -1,0 +1,21 @@
+name: Test Workflow
+
+on:
+  workflow_call: # Define the `on.workflow_call` trigger
+    inputs:
+      branch: # Define any input parameters needed (optional)
+        description: 'The branch to trigger the workflow'
+        required: true
+        default: 'main'
+        type: string
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: print a command
+        run: echo "Calling workflow in a remote repository"
